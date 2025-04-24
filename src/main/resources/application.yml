@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      base-url: ${OPENAI_BASE_URL:https://api.openai.com}
+      
+dify:
+  api:
+    base-url: ${DIFY_API_URL:http://localhost:5000}
+    api-key: ${DIFY_API_KEY}
+  workflow:
+    path: ${DIFY_WORKFLOW_PATH:}  # 工作流YAML文件路径
+    app-id: ${DIFY_APP_ID:}      # 可选的Dify应用ID
+    
+# MCP服务器配置
+mcp:
+  server:
+    id: dify-mcp-server
+    name: Dify MCP Server
+    description: Dify Workflow MCP Integration Server
+    version: 1.0.0
+    # MCP API 格式定义
+    schemas:
+      enabled: true
+
+logging:
+  level:
+    org.springframework.ai: INFO
+    com.example.springaidifymcpserver: DEBUG
